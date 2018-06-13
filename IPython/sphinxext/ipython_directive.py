@@ -562,7 +562,7 @@ class EmbeddedSphinxShell(object):
             found = found[len(output_prompt):].strip()
 
             # Handle the actual doctest comparison.
-            if decorator.strip() == '@doctest':
+            if decorator is None or decorator.strip() == '@doctest':
                 # Standard doctest
                 if found != submitted:
                     e = ('doctest failure\n\n'
